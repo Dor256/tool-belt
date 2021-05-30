@@ -1,0 +1,36 @@
+{
+  "name": "@unpacked/tool-belt",
+  "version": "1.0.0",
+  "description": "General utils for side projects",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "rm -rf dist && tsc"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dor256/tool-belt.git"
+  },
+  "files": [
+    "dist/*"
+  ],
+  "author": "dorb256@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.14.4",
+    "@types/jest": "^26.0.23",
+    "babel-jest": "^27.0.2",
+    "jest": "^26.0.0",
+    "ts-jest": "^26.0.0",
+    "typescript": "^4.3.2"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.(ts)$": "ts-jest"
+    }
+  }
+}
