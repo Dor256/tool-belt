@@ -1,6 +1,6 @@
 {
   "name": "@unpacked/tool-belt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "General utils for side projects",
   "main": "dist/index.js",
   "scripts": {

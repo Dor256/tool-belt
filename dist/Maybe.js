@@ -18,7 +18,7 @@ class Maybe {
         }
         return Maybe.Just(value);
     }
-    unwrap(options) {
+    inCaseOf(options) {
         if (this.#value === undefined || this.#value === null) {
             return options.Nothing();
         }

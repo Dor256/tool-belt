@@ -4,7 +4,7 @@ export declare class Maybe<T> {
     static Just<T>(value: T): Maybe<T>;
     static Nothing<T>(): Maybe<T>;
     static fromValue<T>(value: T | null | undefined): Maybe<T>;
-    unwrap<R = T>(options: {
+    inCaseOf<R = T>(options: {
         Just: (value: T) => R;
         Nothing: () => R;
     }): R;
