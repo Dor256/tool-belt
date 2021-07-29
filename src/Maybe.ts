@@ -20,7 +20,7 @@ export class Maybe<T> {
     return Maybe.Just(value);
   }
 
-  unwrap<R = T>(options: { Just: (value: T) => R, Nothing: () => R }): R {
+  inCaseOf<R = T>(options: { Just: (value: T) => R, Nothing: () => R }): R {
     if (this.#value === undefined || this.#value === null) {
       return options.Nothing();
     }

@@ -37,12 +37,12 @@ describe('Maybe monad', () => {
     });
   });
 
-  describe('unwrap', () => {
+  describe('inCaseOf', () => {
     it('Unwraps the maybe value to be Just', () => {
       const value = 5;
       const maybeValue = Maybe.fromValue(value);
 
-      const unwrapped = maybeValue.unwrap({
+      const unwrapped = maybeValue.inCaseOf({
         Just: (val) => val,
         Nothing: () => 6
       });
@@ -54,7 +54,7 @@ describe('Maybe monad', () => {
       const undefinedValue = undefined;
       const maybeValue = Maybe.fromValue(undefinedValue);
 
-      const unwrapped = maybeValue.unwrap({
+      const unwrapped = maybeValue.inCaseOf({
         Just: (val) => val,
         Nothing: () => 6
       });
