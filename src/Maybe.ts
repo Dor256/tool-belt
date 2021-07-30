@@ -13,7 +13,7 @@ export class Maybe<T> {
     return new Maybe<T>(null);
   }
 
-  static fromValue<T>(value: T | null | undefined) {
+  static fromValue<T>(value?: T | null | undefined) {
     if (value === null || value === undefined) {
       return Maybe.Nothing<T>();
     }
