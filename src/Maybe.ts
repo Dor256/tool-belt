@@ -20,8 +20,8 @@ export class Maybe<T> {
     return Maybe.Just(value);
   }
 
-  static compose<G>(maybes: Record<keyof G, Maybe<unknown>>): Maybe<G> {
-    return Object.entries<Maybe<unknown>>(maybes).reduce((maybeAcc, [key, maybeValue]) => {
+  static compose<G>(maybes: {[K in keyof G]: Maybe<G[K]>}): Maybe<G> {
+    return Object.entries<Maybe<G[keyof G]>>(maybes).reduce((maybeAcc, [key, maybeValue]) => {
       return maybeValue.inCaseOf({
         Nothing: () => Maybe.fromValue<G>(),
         Just: (value) => {
