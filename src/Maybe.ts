@@ -44,4 +44,18 @@ export class Maybe<T> {
     }
     return f(this.#value);
   }
+
+  static compose<G>(maybes: Record<keyof G, Maybe<unknown>>): Maybe<G> {
+    return Object.entries<Maybe<unknown>>(maybes).reduce((maybeAcc, [key, maybeValue]) => {
+      return maybeValue.inCaseOf({
+        Nothing: () => Maybe.fromValue<G>(),
+        Just: (value) => {
+          return maybeAcc.inCaseOf({
+            Nothing: () => Maybe.fromValue(),
+            Just: (acc) => Maybe.fromValue<G>({...acc, [key]: value})
+          });
+        }
+      });
+    }, Maybe.fromValue<G>({} as G));
+  }
 }

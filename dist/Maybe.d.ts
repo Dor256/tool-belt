@@ -3,7 +3,7 @@ export declare class Maybe<T> {
     private constructor();
     static Just<T>(value: T): Maybe<T>;
     static Nothing<T>(): Maybe<T>;
-    static fromValue<T>(value: T | null | undefined): Maybe<T>;
+    static fromValue<T>(value?: T | null | undefined): Maybe<T>;
     inCaseOf<R = T>(options: {
         Just: (value: T) => R;
         Nothing: () => R;

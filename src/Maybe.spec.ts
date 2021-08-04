@@ -93,4 +93,28 @@ describe('Maybe monad', () => {
       expect(flatMapped.orElse(6)).toBe(10);
     });
   });
+
+  describe('compose', () => {
+    it('Returns the composed value for Just', () => {
+      const expected = Maybe.compose({
+        first: Maybe.fromValue('first'),
+        second: Maybe.fromValue('second')
+      });
+
+      expect(expected.orElse(6)).toEqual({
+        first: 'first',
+        second: 'second'
+      })
+    });
+
+    it('Returns Nothing if one of the values is Nothing', () => {
+      const expected = Maybe.compose({
+        first: Maybe.fromValue('first'),
+        second: Maybe.fromValue(),
+        third: Maybe.fromValue('third')
+      });
+
+      expect(expected.orElse('nothing')).toBe('nothing');
+    })
+  });
 });
