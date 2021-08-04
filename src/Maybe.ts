@@ -20,18 +20,18 @@ export class Maybe<T> {
     return Maybe.Just(value);
   }
 
-  static compose<G>(maybes: {[K in keyof G]: Maybe<G[K]>}): Maybe<G> {
-    return Object.entries<Maybe<G[keyof G]>>(maybes).reduce((maybeAcc, [key, maybeValue]) => {
+  static compose<T>(maybes: { [K in keyof T]: Maybe<T[K]> }): Maybe<T> {
+    return Object.entries<Maybe<T[keyof T]>>(maybes).reduce((maybeAcc, [key, maybeValue]) => {
       return maybeValue.inCaseOf({
-        Nothing: () => Maybe.fromValue<G>(),
+        Nothing: () => Maybe.fromValue(),
         Just: (value) => {
           return maybeAcc.inCaseOf({
             Nothing: () => Maybe.fromValue(),
-            Just: (acc) => Maybe.fromValue<G>({...acc, [key]: value})
+            Just: (acc) => Maybe.fromValue({...acc, [key]: value})
           });
         }
       });
-    }, Maybe.fromValue<G>({} as G));
+    }, Maybe.fromValue({} as T));
   }
 
   inCaseOf<R = T>(options: { Just: (value: T) => R, Nothing: () => R }): R {
