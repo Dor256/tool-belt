@@ -1,5 +1,5 @@
 {
-  "name": "@xnpacked/tool-belt",
+  "name": "@xpacked/tool-belt",
   "version": "1.0.0",
   "description": "General utils for side projects",
   "main": "dist/index.js",
