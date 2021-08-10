@@ -1,6 +1,6 @@
 {
-  "name": "@unpacked/tool-belt",
-  "version": "1.0.5",
+  "name": "@xnpacked/tool-belt",
+  "version": "1.0.0",
   "description": "General utils for side projects",
   "main": "dist/index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Dor256/tool-belt.git"
+    "url": "https://github.com/xpacked/tool-belt.git"
   },
   "files": [
     "dist/*"
